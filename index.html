@@ -77,22 +77,22 @@ button{
   
 <script>
 let currentSlide = 1;
-let totalSlides = 8;
+const totalSlides = 8;
 
-function playMusic(){
+function playMusic() {
   document.getElementById("music").play();
-  document.querySelector(".start").style.display="none";
+  document.querySelector(".start").style.display = "none";
 }
 
-function nextSlide(){
-  if(currentSlide < totalSlides){
+function nextSlide() {
+  if (currentSlide < totalSlides) {
     currentSlide++;
     document.getElementById("slide").src = currentSlide + ".png";
   }
 }
 
-function prevSlide(){
-  if(currentSlide > 1){
+function prevSlide() {
+  if (currentSlide > 1) {
     currentSlide--;
     document.getElementById("slide").src = currentSlide + ".png";
   }
