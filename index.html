@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday ❤️</title>
+
+  <style>
+    body{
+      margin:0;
+      background:black;
+      text-align:center;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    .start{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:black;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:30px;
+      z-index:999;
+      cursor:pointer;
+      font-family:Arial;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="start" onclick="playMusic()">
+  tap to open your gift 🎧
+</div>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<img src="1.png">
+<img src="2.png">
+<img src="3.png">
+<img src="4.png">
+
+<script>
+function playMusic(){
+  document.getElementById("music").play();
+  document.querySelector(".start").style.display="none";
+}
+</script>
+
+</body>
+</html>
