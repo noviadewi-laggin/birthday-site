@@ -61,6 +61,7 @@
   height:100vh;
   object-fit:contain;
   background:black;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .nav{
@@ -113,7 +114,20 @@ button{
 <script>
 let currentSlide = 1;
 const totalSlides = 9;
+function smoothChange(newSrc, direction) {
+  const img = document.getElementById("slide");
 
+  img.style.opacity = "0";
+  img.style.transform = direction === "next"
+    ? "translateX(40px)"
+    : "translateX(-40px)";
+
+  setTimeout(() => {
+    img.src = newSrc;
+    img.style.opacity = "1";
+    img.style.transform = "translateX(0)";
+  }, 250);
+}
 function playMusic() {
 
   document.getElementById("music").play();
@@ -131,14 +145,14 @@ function playMusic() {
 function nextSlide() {
   if (currentSlide < totalSlides) {
     currentSlide++;
-    document.getElementById("slide").src = currentSlide + ".png";
+    smoothChange(currentSlide + ".png", "next");
   }
 }
 
 function prevSlide() {
   if (currentSlide > 1) {
     currentSlide--;
-    document.getElementById("slide").src = currentSlide + ".png";
+    smoothChange(currentSlide + ".png", "prev");
   }
 }
 </script>
