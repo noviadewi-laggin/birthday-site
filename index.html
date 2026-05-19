@@ -2,83 +2,93 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Ade❤️</title>
+  <title>Happy Birthday Ade ❤️</title>
 
   <style>
+
     body{
       margin:0;
       background:black;
-      text-align:center;
-    }
-
-    img{
-      width:100%;
-      display:block;
+      overflow-x:hidden;
+      font-family:Georgia, serif;
     }
 
     .start{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-image:url('cover.png');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-  z-index:999;
-  cursor:pointer;
-  transition: opacity 1s ease;
-}
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-image:url('cover.png');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      z-index:999;
+      cursor:pointer;
+      transition:opacity 1s ease;
+    }
 
-.overlay{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.45);
-}
+    .overlay{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.45);
+    }
 
-.cover-text{
-  position:relative;
-  color:white;
-  text-align:center;
-  font-family:Georgia, serif;
-  font-size:32px;
-  line-height:1.5;
-  text-shadow:0 0 15px rgba(0,0,0,0.8);
-}
+    .cover-text{
+      position:relative;
+      color:white;
+      text-align:center;
+      font-size:32px;
+      line-height:1.5;
+      text-shadow:0 0 15px rgba(0,0,0,0.8);
+      padding:20px;
+    }
 
-.love{
-  margin-top:30px;
-  font-size:18px;
-  opacity:0.9;
-}
-    #slide{
-  width:100%;
-  height:100vh;
-  object-fit:contain;
-  background:black;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+    .love{
+      margin-top:30px;
+      font-size:18px;
+      opacity:0.9;
+    }
 
-.nav{
-  position:fixed;
-  bottom:20px;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
+    .container{
+      max-width:700px;
+      margin:auto;
+      padding-top:20px;
+      padding-bottom:40px;
+    }
 
-button{
-  padding:10px 20px;
-  font-size:20px;
-  border:none;
-  border-radius:10px;
-}
+    .container img{
+      width:100%;
+      display:block;
+      margin-bottom:40px;
+      border-radius:18px;
+    }
+
+    @media screen and (max-width:768px){
+
+      .cover-text{
+        font-size:24px;
+      }
+
+      .love{
+        font-size:16px;
+      }
+
+      .container{
+        max-width:100%;
+      }
+
+      .container img{
+        margin-bottom:20px;
+        border-radius:0;
+      }
+
+    }
+
   </style>
 </head>
 
@@ -90,12 +100,13 @@ button{
 
   <div class="cover-text">
     tap to open<br>
-    your b’day letter sayang! 🎧
+    your b’day letter sayang 🎧
 
     <div class="love">
       with love,<br>
       Novia
     </div>
+
   </div>
 
 </div>
@@ -104,30 +115,22 @@ button{
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<img id="slide" src="1.png">
+<div class="container">
 
-<div class="nav">
-  <button onclick="prevSlide()">←</button>
-  <button onclick="nextSlide()">→</button>
+  <img src="1.png">
+  <img src="2.png">
+  <img src="3.png">
+  <img src="4.png">
+  <img src="5.png">
+  <img src="6.png">
+  <img src="7.png">
+  <img src="8.png">
+  <img src="9.png">
+
 </div>
-  
+
 <script>
-let currentSlide = 1;
-const totalSlides = 9;
-function smoothChange(newSrc, direction) {
-  const img = document.getElementById("slide");
 
-  img.style.opacity = "0";
-  img.style.transform = direction === "next"
-    ? "translateX(40px)"
-    : "translateX(-40px)";
-
-  setTimeout(() => {
-    img.src = newSrc;
-    img.style.opacity = "1";
-    img.style.transform = "translateX(0)";
-  }, 250);
-}
 function playMusic() {
 
   document.getElementById("music").play();
@@ -142,19 +145,6 @@ function playMusic() {
 
 }
 
-function nextSlide() {
-  if (currentSlide < totalSlides) {
-    currentSlide++;
-    smoothChange(currentSlide + ".png", "next");
-  }
-}
-
-function prevSlide() {
-  if (currentSlide > 1) {
-    currentSlide--;
-    smoothChange(currentSlide + ".png", "prev");
-  }
-}
 </script>
 
 </body>
